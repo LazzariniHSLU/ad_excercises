@@ -17,6 +17,18 @@ public class CustomListTest {
     }
 
     @Test
+    public void addMultiple(){
+        CustomList<Integer> testList = new CustomList<>();
+        testList.add(2);
+        testList.add(4);
+        CustomList<Integer> elementsToAdd = new CustomList<>();
+        elementsToAdd.add(3);
+        elementsToAdd.add(1);
+        testList.add(elementsToAdd);
+        assertEquals(4, testList.size());
+    }
+
+    @Test
     public void size() {
         CustomList<Integer> testList = new CustomList<>();
         int counter = 0;
@@ -50,9 +62,11 @@ public class CustomListTest {
     public void remove() {
         CustomList<Integer> testList = new CustomList<>();
         testList.add(2);
-        testList.add(1);
         testList.add(4);
-        testList.add(3);
+        CustomList<Integer> elementsToAdd = new CustomList<>();
+        elementsToAdd.add(3);
+        elementsToAdd.add(1);
+        testList.add(elementsToAdd);
         testList.remove(1);
         assertEquals(3, testList.size());
     }

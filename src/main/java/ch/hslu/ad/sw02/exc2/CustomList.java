@@ -51,6 +51,12 @@ public class CustomList<T> implements Iterable<T> {
         size += 1;
     }
 
+    public void add(CustomList<T> elementsToAdd){
+        for(T element : elementsToAdd){
+            this.add(element);
+        }
+    }
+
     public void removeFirst() {
         Node<T> newHead = head.getNext();
         head = newHead;
