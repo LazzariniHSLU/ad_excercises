@@ -2,8 +2,10 @@ package ch.hslu.ad.sw03.ecx5;
 
 import java.util.Objects;
 
-public class TreeNode<T extends Comparable> implements Comparable{ //Only extensions of the Comparable are allowed as T
+public class TreeNode<T extends Comparable> implements Comparable { //Only extensions of the Comparable are allowed as T
     private TreeNode<T> leftChild;
+    private TreeNode<T> rightChild;
+
 
     public TreeNode<T> getLeftChild() {
         return leftChild;
@@ -12,8 +14,6 @@ public class TreeNode<T extends Comparable> implements Comparable{ //Only extens
     public TreeNode<T> getRightChild() {
         return rightChild;
     }
-
-    private TreeNode<T> rightChild;
 
     public T getData() {
         return data;

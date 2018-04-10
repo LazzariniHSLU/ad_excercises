@@ -1,6 +1,7 @@
 package ch.hslu.ad.sw03.ecx5;
 
-import ch.hslu.ad.sw02.exc4.CustomQueue;
+import java.util.ArrayList;
+import java.util.NoSuchElementException;
 
 public class BinaryTree<T extends Comparable> implements Tree<T> {
 
@@ -9,6 +10,10 @@ public class BinaryTree<T extends Comparable> implements Tree<T> {
 
     public BinaryTree(T root) {
         this.root = new TreeNode(root);
+    }
+
+    public BinaryTree(){
+
     }
 
     @Override
@@ -61,11 +66,48 @@ public class BinaryTree<T extends Comparable> implements Tree<T> {
 
     @Override
     public boolean search(T element) {
+        return search(root, element);
+    }
+
+    private boolean search(TreeNode node, T element) {
+        if (node == null) {
+            return false;
+        }
+        if (element.equals(node.getData())) {
+            return true;
+        }
+        if (element.compareTo(node.getData()) > 0) {
+            return search(node.getRightChild(), element);
+        } else if (element.compareTo(node.getData()) < 0) {
+            return search(node.getLeftChild(), element);
+        }
         return false;
+
     }
 
     @Override
     public boolean remove(T element) {
+        return remove(root, element);
+    }
+
+    private boolean remove(TreeNode node, T element){
+        if(node == null){
+            return false;
+        }
+        if(element.equals(node.getData())){
+            //TODO: Remove
+            if(node.getLeftChild() == null && node.getRightChild() == null){
+                node = null;
+                this.size -= 1;
+            }
+            return true;
+        }
+        if(element.compareTo(node.getData())>0){
+            return remove(node.getRightChild(), element);
+        }
+        else if(element.compareTo(node.getData())<0){
+            return remove(node.getLeftChild(), element);
+        }
         return false;
     }
 
@@ -81,9 +123,38 @@ public class BinaryTree<T extends Comparable> implements Tree<T> {
 
     private void print(String prefix, TreeNode n, boolean isLeft) {
         if (n != null) {
-            System.out.println (prefix + (isLeft ? "|-- " : "\\-- ") + n.getData());
+            System.out.println(prefix + (isLeft ? "|-- " : "\\-- ") + n.getData());
+
             print(prefix + (isLeft ? "|   " : "    "), n.getLeftChild(), true);
             print(prefix + (isLeft ? "|   " : "    "), n.getRightChild(), false);
         }
+    }
+
+    public ArrayList Preorder(){
+        return Preorder(root, new ArrayList());
+    }
+
+    private ArrayList Preorder(TreeNode node, ArrayList list){
+        if(node != null){
+            list.add(node.getData());
+            Preorder(node.getLeftChild(), list);
+            Preorder(node.getRightChild(), list);
+            return list;
+        }
+        return list;
+    }
+
+    public ArrayList Inorder() {
+        return Inorder(root, new ArrayList());
+    }
+
+    private ArrayList Inorder(TreeNode node, ArrayList list) {
+        if(node != null){
+            Inorder(node.getLeftChild(), list);
+            list.add(node.getData());
+            Inorder(node.getRightChild(), list);
+            return list;
+        }
+        return list;
     }
 }

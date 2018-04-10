@@ -25,14 +25,13 @@ public final class Allocation implements Comparable<Allocation> {
         if (this == o) return true;
         if (!(o instanceof Allocation)) return false;
         Allocation that = (Allocation) o;
-        return startAdress == that.startAdress &&
-                allocationSize == that.allocationSize;
+        return startAdress == that.startAdress;
     }
 
     @Override
     public int hashCode() {
 
-        return Objects.hash(startAdress, allocationSize);
+        return Objects.hash(startAdress);
     }
 
     @Override
