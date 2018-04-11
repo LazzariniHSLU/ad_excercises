@@ -43,6 +43,10 @@ public class CustomQueue<T> implements Queue<T>{
         return size;
     }
 
+    public int length(){
+        return queue.length;
+    }
+
     @Override
     public boolean isEmpty() {
         return size == 0;
