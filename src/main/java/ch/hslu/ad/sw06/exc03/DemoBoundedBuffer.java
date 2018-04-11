@@ -1,6 +1,5 @@
-package ch.hslu.ad.sw02.exc4;
+package ch.hslu.ad.sw06.exc03;
 
-import ch.hslu.ad.sw06.exc03.BoundedBuffer;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
