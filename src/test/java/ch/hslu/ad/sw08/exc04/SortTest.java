@@ -9,6 +9,7 @@ import static org.junit.Assert.*;
 
 public class SortTest {
 
+    //region Insertion Sort
     @Test
     public void insertionSort2() {
         int[] test = new int[]{10, 9, 8, 7, 6, 5, 4, 3, 2, 1, 0};
@@ -54,7 +55,9 @@ public class SortTest {
         long end = System.currentTimeMillis();
         System.out.println("Sorting a desc sorted array took " + (end - start)+ " milliseconds");
     }
+    //endregion
 
+    //region Selection Sort
     @Test
     public void selectionSort() {
         int[] test = new int[]{10, 9, 8, 7, 6, 5, 4, 3, 2, 1, 0};
@@ -75,6 +78,7 @@ public class SortTest {
         long end = System.currentTimeMillis();
         System.out.println("Select Sorting a random array took " + (end - start)+ " milliseconds");
     }
+
 
     @Test
     public void performanceSelSortAlreadySorted() {
@@ -100,4 +104,5 @@ public class SortTest {
         long end = System.currentTimeMillis();
         System.out.println("Select Sorting a desc sorted array took " + (end - start)+ " milliseconds");
     }
+    //endregion
 }
