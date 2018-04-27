@@ -3,7 +3,6 @@ package ch.hslu.ad.sw08.exc04;
 import ch.hslu.ad.sw08.Sort;
 import org.junit.Test;
 
-import java.util.ArrayDeque;
 import java.util.Arrays;
 import java.util.Random;
 
@@ -203,6 +202,42 @@ public class SortTest {
     }
     //endregion
 
+    //region Shell Sort
+    @Test
+    public void shellSort() {
+        int[] test = new int[]{5, 33, 12, 13, 8, 1, 41, 12, 27, 26};
+        int[] result = new int[]{5, 33, 12, 13, 8, 1, 41, 12, 27,26};
+        Arrays.sort(result);
+        Sort.shellSort(test);
+        assertTrue(compareArrays(test, result));
+    }
+    @Test
+    public void shellSortHibbard() {
+        int[] test = new int[]{5, 33, 12, 13, 8, 1, 41, 12, 27};
+        int[] result = new int[]{5, 33, 12, 13, 8, 1, 41, 12, 27};
+        Arrays.sort(result);
+        Sort.shellSortHibbard(test);
+        assertTrue(compareArrays(test, result));
+    }
+
+    @Test
+    public void shellSortHibbardRandom(){
+        int[] test = new int[arrayLength];
+        int[] result = new int[arrayLength];
+        for (int i = 0; i < arrayLength; i++) {
+            int number = new Random().nextInt();
+            test[i] = number;
+            result[i] = number;
+        }
+        Arrays.sort(result);
+        long start = System.currentTimeMillis();
+        Sort.shellSortHibbard(test);
+        long end = System.currentTimeMillis();
+        assertTrue(compareArrays(test, result));
+        System.out.println("Shell Sorting a random array took " + (end - start) + " milliseconds");
+    }
+    //endregion
+
     //region Helper Methods
     private boolean compareArrays(int[] array1, int[] array2) {
         boolean b = true;
@@ -220,5 +255,6 @@ public class SortTest {
         }
         return b;
     }
+
     //endregion
 }
