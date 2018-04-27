@@ -5,6 +5,7 @@ public class Sort {
 
     /**
      * Sortiert das int-Array aufsteigend gemäss direktes einfügen.
+     *
      * @param array Zu sortierendes Array.
      */
     public static void insertionSort(final int[] array) {
@@ -25,6 +26,7 @@ public class Sort {
 
     /**
      * Sortiert das int-Array aufsteigend gemäss direktes Auswählen.
+     *
      * @param array Zu sortierendes Array.
      */
     public static void selectionSort(final int[] array) {
@@ -39,7 +41,19 @@ public class Sort {
             int swapValue = array[i];
             array[i] = array[lowestIndex];
             array[lowestIndex] = swapValue;
+        }
+    }
 
+    public static void bubbleSort(final int[] array) {
+        int n = array.length;
+        for (int i = 0; i < n - 1; i++) {
+            for (int j = 1; j < n; j++) {
+                if(array[j] < array[j-1]){
+                    int swapValue = array[j];
+                    array[j] = array[j-1];
+                    array[j-1] = swapValue;
+                }
+            }
         }
     }
 }
