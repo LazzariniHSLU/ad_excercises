@@ -1,7 +1,15 @@
 package ch.hslu.ad.A3;
 
+/**
+ * Ist ein deterministischer endlicher Automat welcher die Eingabe von Symbolen prüft (Wordproblem)
+ */
 public class DEA {
 
+    /**
+     * Prüft ob das eingegebene Wort syntaktisch korrekt ist
+     * @param string das zu prüfende Wort
+     * @return syntaktische Korrektheit
+     */
     public static boolean isWordLanguage(final String string) {
         final char[] word = string.toCharArray();
         State state = State.Z0;
