@@ -36,7 +36,7 @@ public class SearchTest {
         }
         long end = System.currentTimeMillis();
         System.out.println("QuickSearch dauerte " + (end - start) + " ms");
-        assertEquals(1079145, index);
+        assertEquals(pattern,getCheckString(index, pattern.length()));
     }
 
 
@@ -56,6 +56,14 @@ public class SearchTest {
         }
         long end = System.currentTimeMillis();
         System.out.println("Optimal Mismatch dauerte " + (end - start) + " ms");
-        assertEquals(1079145, index);
+        assertEquals(pattern,getCheckString(index, pattern.length()));
+    }
+
+    private String getCheckString(int startIndex, int patternLength){
+        StringBuilder sb = new StringBuilder();
+        for(int i = 0; i < patternLength; i++){
+            sb.append(file.charAt(startIndex  + i));
+        }
+        return sb.toString();
     }
 }
