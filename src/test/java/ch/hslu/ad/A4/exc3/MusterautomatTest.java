@@ -14,7 +14,7 @@ public class MusterautomatTest {
     @Test
     public void kmpSearch(){
         String testString = "NNNSSSAAANSBSAANNANASNANSANANASSSSANd";
-        assertEquals(24, Musterautomat.kmpSearch(testString, "ANANAS"));
+        assertEquals(25, Musterautomat.kmpSearch(testString, "ANANAS"));
     }
 
     @Test

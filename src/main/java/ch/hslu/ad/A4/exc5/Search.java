@@ -1,5 +1,9 @@
 package ch.hslu.ad.A4.exc5;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
+
 public class Search {
     /**
      * Durchsucht eine Zeichenkette mittels quickSearch.
@@ -102,4 +106,5 @@ public class Search {
             array[1][actualIndex] = b;
         }
     }
+
 }
